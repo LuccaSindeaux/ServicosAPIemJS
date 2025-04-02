@@ -12,6 +12,7 @@ let tabordaBrother, tabordaSister;
     tabordaBrother = "Patric";
     tabordaSister = "Gabrieli";
 
+    //Utilização de ternários
 const tabordaVerify = (tabordaBrother === tabordaSister) 
     ? "Os tabordas são os mesmos"  //if
     : "Uma é a Taborda sister, o outro é o brother." //else
