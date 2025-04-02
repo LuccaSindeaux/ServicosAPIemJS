@@ -12,7 +12,7 @@
 // Crie também um readme.md explicando a aplicação, assim como mostrando como executar.
 
 let arrayCrud = [];
-let nextId = 1;
+let nextId = 1; //autoincrement --> padrão é ser: let autoIncrement = 1
 
 //Inserir
 function insertProdcut(nome, categoria, preco){
@@ -32,13 +32,13 @@ function listProds(){
 }
 
 //Buscar por ID
-function idSeracher(id){
-    const produto = arrayCrud.find(p => p.id ===id);
+function idSearcher(id){
+    const produto = arrayCrud.find(p => p.id === id);
 }
 
 //Atualizar
 function updateProduct(id, nome, categoria, preco){
-    const produto = arrayCrud.find(p => p.id ===id); //Método find() --> busca pelo id
+    const produto = arrayCrud.find(p => p.id === id); //Método find() --> busca pelo id
     if (produto){
         produto.nome = nome || produto.nome;
         produto.categoria = categoria || produto.categoria;
@@ -52,28 +52,44 @@ function updateProduct(id, nome, categoria, preco){
 function remove(id) {
     const index = arrayCrud.findIndex(p => p.id === id); //método findIndex() retorna o id ou -1 caso não encontre
     if (index !== -1) { 
-        const removido = arrayCrud.splice(index, 1);
+        const removido = arrayCrud.splice(index, 1); //splice() substiui itens em array
         return JSON.stringify({ mensagem: "Produto removido com sucesso", produto: removido[0] }, 2);
     }
     return JSON.stringify({ erro: "Produto não encontrado" });
 }
 
 //Pesquisar por categoria
-function searchCategory(){
+function searchCategory(categoria){
     return arrayCrud.filter(p => p.categoria === categoria);
 }
 //pesquisar por nome (like)
-function SearchName(){
-    return arrayCrud.filter(p => p.nome.toLowerCase().includes(nome.toLowerCase()));
+function searchName(nome){
+    if(typeof nome != 'string') return [];
+
+    return arrayCrud.filter(p => typeof p.nome === 'string' && p.nome.toLowerCase().includes(nome.toLowerCase()));
 }
 
 
+function main(){
+    insertProdcut({nome:"Arroz", categoria:"Alimento", preco:4.7});
+    insertProdcut({nome:"Suco de Laranja", categoria:"Bebida", preco:7.5});
+    insertProdcut({nome:"Feijao", categoria:"Alimento", preco:6.7});
+    insertProdcut({nome:"Detergente", categoria:"Limpeza", preco:2.5});
+    insertProdcut({nome:"Coca-cola", categoria:"Bebida", preco:8.9});
 
-// Exemplo de uso:
-// console.log(inserir("Notebook", "Eletrônicos", 3500.00));
-// console.log(inserir("Mouse", "Periféricos", 150.00));
-// console.log(listar());
-// console.log(buscarPorId(1));
-// console.log(atualizar(1, "Notebook Gamer", "Eletrônicos", 5000.00));
-// console.log(remover(2));
-// console.log(listar());
+    console.log(listProds());
+
+    console.log("Produto [id=2]: ", idSearcher(2));
+
+    console.log("Produtos da categoria Alimento", searchCategory("Alimento"));
+
+    console.log("Produtos que possuem a letra 'a'", searchName("a"));
+
+    updateProduct(4, {nome:"Coca-cola", categoria:"Bebida", preco: 8.5, id:4})
+
+    remove(4);
+
+    console.log(listProds());
+}
+
+main();
