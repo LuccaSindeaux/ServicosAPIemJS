@@ -23,4 +23,6 @@ Aulas de API (em JavaScript) do SenacRS
             . linha 7 falei que o comando "node main.js' foi substituído por "start", ou seja, 'npm start'
             . linha 8 falei que a biblioteca jest que baixei é o equivalente ao 'npm run test', minhas ferramentas do jest estão dentro deste comando de terminal.
 
+      Depois que o package.json já estiver instalado, basta abrir o arquivo/pasta onde ele está, e digitar no terminal o comando "npm install", e isto trará para o workspace os arquivos node_modules e lock.json. Neste caso o jest é o pacote de ferramentas instalado.
+
 
