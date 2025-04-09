@@ -1,0 +1,19 @@
+{
+  "name": "servicosapiemjs",
+  "version": "1.0.0",
+  "description": "Aulas de API (em JavaScript) do SenacRS",
+  "main": "index.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
