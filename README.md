@@ -26,3 +26,12 @@ Aulas de API (em JavaScript) do SenacRS
       Depois que o package.json já estiver instalado, basta abrir o arquivo/pasta onde ele está, e digitar no terminal o comando "npm install", e isto trará para o workspace os arquivos node_modules e lock.json. Neste caso o jest é o pacote de ferramentas instalado.
 
 
+    Comando npm init: 
+        Cria um package.json vinculada ao diretório aberto. o json é o arquivo de configuração do nosso JS.
+    
+    module.exports:
+        Exporta as funções para serem chamadas numa importação em outro arquivo. Ele é chamado com require('./NomeArquivo.js'); aula05 e 06
+
+    jest --coverage:
+        no json, cria-se o script "cover": "jest --coverage", ele cria um "relatório" mais completo num index.html que pode ser acessado sobre nossos testes. Ele é inicializado com "npm run cover", e cria uma pastaa coverage, com outra pasta "Icov-report" com este index.html. 
+
