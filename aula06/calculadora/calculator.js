@@ -11,10 +11,11 @@ function multiplicar(a,b){
 }
 
 function dividir(a,b){
-    if(b==0){
-        return NaN; // NaN é "Not a Number", pois qualquer número dividido por 0 é impossível
-    }
-    return a/b;
+    return a/b || NaN // ternário
+    // if(b==0){
+    //     return NaN; // NaN é "Not a Number", pois qualquer número dividido por 0 é impossível
+    // }
+    // return a/b;
 }
 
 module.exports = {
