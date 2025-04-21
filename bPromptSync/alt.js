@@ -13,8 +13,8 @@ let valor1 = lines.shift(); //Ao invés de ler o prompt, ele lerá o a linha e m
 let valor2 = lines.shift();
 
 // Processamentos de dados
-let v1 = parseFloat(valor1);
-let v2 = parseFloat(valor2);
+let v1 = parseInt(valor1);
+let v2 = parseInt(valor2);
 let soma = v1 + v2;
 
 
