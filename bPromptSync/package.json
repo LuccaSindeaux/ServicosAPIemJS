@@ -1,0 +1,23 @@
+{
+  "name": "proptsyncjs",
+  "version": "1.0.0",
+  "description": "Algoritmos com a biblioteca prompt-sync",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuccaSindeaux/proptSyncJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuccaSindeaux/proptSyncJS/issues"
+  },
+  "homepage": "https://github.com/LuccaSindeaux/proptSyncJS#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
