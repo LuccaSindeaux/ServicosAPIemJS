@@ -2,7 +2,7 @@
 Algoritmos com a biblioteca prompt-sync
 
 
-- Utilizando o npm init -y intalasse o package JSON;
+- Utilizando o npm init -y intala-se o package JSON;
 
 - Desta vez está sendo usada a biblioteca prompt-sync para "rodar" códigos em terminal, isto, ver nossa saída de dados em terminal;
 
