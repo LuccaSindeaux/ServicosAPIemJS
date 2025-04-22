@@ -1,0 +1,15 @@
+{
+  "name": "exerc01",
+  "version": "1.0.0",
+  "description": "CRUD do exercicio 3:\r     //Buscar por ID\r     function idSeracher(id){\r         const produto = arrayCrud.find(p => p.id ===id); //constante produto é um método que busca o array e para no primeiro elemento que satisfaça a busca. Neste caso, o argumento dele é o id. E p => p.id === id é uma arrow function que para cada item p (produto) no array, ele verifica se p.id (ID do produto) é igual ao id passado como argumento.\r     }",
+  "main": "exerc1.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
+}

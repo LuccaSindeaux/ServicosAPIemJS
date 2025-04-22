@@ -15,7 +15,7 @@ let arrayCrud = [];
 let nextId = 1; //autoincrement --> padrão é ser: let autoIncrement = 1
 
 //Inserir
-function insertProdcut(nome, categoria, preco){
+function inserir(nome, categoria, preco){
     const newProd = {
         id: nextId++, //incremento de id
         nome,
@@ -27,17 +27,17 @@ function insertProdcut(nome, categoria, preco){
 } 
 
 //Listar
-function listProds(){
+function listar(){
     return JSON.stringify(arrayCrud, 2);
 }
 
 //Buscar por ID
-function idSearcher(id){
+function buscarPorId(id){
     const produto = arrayCrud.find(p => p.id === id);
 }
 
 //Atualizar
-function updateProduct(id, nome, categoria, preco){
+function atualizar(id, nome, categoria, preco){
     const produto = arrayCrud.find(p => p.id === id); //Método find() --> busca pelo id
     if (produto){
         produto.nome = nome || produto.nome;
@@ -49,7 +49,7 @@ function updateProduct(id, nome, categoria, preco){
 }
 
 //Deletar
-function remove(id) {
+function deletar(id) {
     const index = arrayCrud.findIndex(p => p.id === id); //método findIndex() retorna o id ou -1 caso não encontre
     if (index !== -1) { 
         const removido = arrayCrud.splice(index, 1); //splice() substiui itens em array
@@ -59,37 +59,47 @@ function remove(id) {
 }
 
 //Pesquisar por categoria
-function searchCategory(categoria){
+function pesquisarPorCategoria(categoria){
     return arrayCrud.filter(p => p.categoria === categoria);
 }
 //pesquisar por nome (like)
-function searchName(nome){
+function pesquisarPorNomeLike(nome){
     if(typeof nome != 'string') return [];
 
     return arrayCrud.filter(p => typeof p.nome === 'string' && p.nome.toLowerCase().includes(nome.toLowerCase()));
 }
 
 
-function main(){
-    insertProdcut({nome:"Arroz", categoria:"Alimento", preco:4.7});
-    insertProdcut({nome:"Suco de Laranja", categoria:"Bebida", preco:7.5});
-    insertProdcut({nome:"Feijao", categoria:"Alimento", preco:6.7});
-    insertProdcut({nome:"Detergente", categoria:"Limpeza", preco:2.5});
-    insertProdcut({nome:"Coca-cola", categoria:"Bebida", preco:8.9});
+// function main(){
+//     inserir({nome:"Arroz", categoria:"Alimento", preco:4.7});
+//     inserir({nome:"Suco de Laranja", categoria:"Bebida", preco:7.5});
+//     inserir({nome:"Feijao", categoria:"Alimento", preco:6.7});
+//     inserir({nome:"Detergente", categoria:"Limpeza", preco:2.5});
+//     inserir({nome:"Coca-cola", categoria:"Bebida", preco:8.9});
 
-    console.log(listProds());
+//     console.log(listar());
 
-    console.log("Produto [id=2]: ", idSearcher(2));
+//     console.log("Produto [id=2]: ", buscarPorId(2));
 
-    console.log("Produtos da categoria Alimento", searchCategory("Alimento"));
+//     console.log("Produtos da categoria Alimento", pesquisarPorCategoria("Alimento"));
 
-    console.log("Produtos que possuem a letra 'a'", searchName("a"));
+//     console.log("Produtos que possuem a letra 'a'", pesquisarPorNomeLike("a"));
 
-    updateProduct(4, {nome:"Coca-cola", categoria:"Bebida", preco: 8.5, id:4})
+//     atualizar(4, {nome:"Coca-cola", categoria:"Bebida", preco: 8.5, id:4})
 
-    remove(4);
+//     deletar(4);
 
-    console.log(listProds());
+//     console.log(listar());
+// }
+
+//main();
+
+module.exports = {
+    inserir,
+    buscarPorId,
+    deletar,
+    atualizar,
+    listar,
+    pesquisarPorCategoria,
+    pesquisarPorNomeLike
 }
-
-main();
