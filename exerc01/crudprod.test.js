@@ -1,4 +1,4 @@
-const produtoRepository = require("./exerc1.js");
+const produtoRepository = require("./crudprod.js");
 
 //Cenário de sucesso
 test('Quando inserir o produto arroz, deve retornar e conter na lista o produto com id=1'
