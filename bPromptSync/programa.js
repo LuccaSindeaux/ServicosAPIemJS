@@ -1,5 +1,5 @@
 let prompt = require('prompt-sync')(); // colocação obrigatório para conguir usar a biblioteca prompt-sync.
-// o comando mais importante pe ter o "require('prompt-sync')();". Ou seja, a minha variável pode ter qualquer nome.
+// o comando mais importante é o "require('prompt-sync')();". Ou seja, a minha variável pode ter qualquer nome.
 
 
 // Entrada de dados
