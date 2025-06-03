@@ -1,5 +1,6 @@
 let decks = [
-    { id: 1, name: "Spellcaster Power", cards: [1] }
+    { id: 1, name: "Spellcaster Power", cards: [5] },
+    {id: 2, name: "Dark Dragon", cards:[2]}
 ];
 
 exports.findAll = () => {

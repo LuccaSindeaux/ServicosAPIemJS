@@ -6,3 +6,5 @@ describe('Deck Repository', () => {
     expect(decks).toBeInstanceOf(Array);
   });
 });
+
+const { findById, addCardToDeck } = require('../../src/repositories/deckRepository');
