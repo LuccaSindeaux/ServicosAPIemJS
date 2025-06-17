@@ -1,4 +1,4 @@
-import cardRepository from '../repositories/cardRepository.js';
+import cardRepository from '../repository/cardRepository.js';
 
 class CardService {
     getAllCards() {
