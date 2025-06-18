@@ -3,15 +3,6 @@ import cardController from '../controller/cardController.js';
 
 const router = Router();
 
-/**
- * @swagger
- * /cards:
- * get:
- * summary: Retrieve a list of cards
- * responses:
- * 200:
- * description: A list of cards.
- */
 router.get('/', cardController.getAll);
 router.get('/:id', cardController.getById);
 router.post('/', cardController.adicionarCarta);

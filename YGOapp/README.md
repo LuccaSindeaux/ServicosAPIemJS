@@ -18,4 +18,4 @@ Altera-se o script do Json para:
 A criação de classes facilita no momento de exportar as funções para serem chamadas nas demais camadas.
 
 <h2>Realização dos testes</h2>
-No terminal, digitar "npm run dev", isto vai iniciar a API na porta 3000
+No terminal, digitar "npm run dev", isto vai iniciar a API na porta 3000, então no aplicativo escolhido para teste (ThunderClient, Insominua ou Postman) deve ser colcoado o caminho correto, neste projeto: "http://localhost:3000/cards" ou "http://localhost:3000/decks", definido nas linhas 9 e 10 do app.js, com o app.use().

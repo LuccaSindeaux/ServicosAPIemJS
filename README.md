@@ -35,3 +35,20 @@ Aulas de API (em JavaScript) do SenacRS
     jest --coverage:
         no json, cria-se o script "cover": "jest --coverage", ele cria um "relatório" mais completo num index.html que pode ser acessado sobre nossos testes. Ele é inicializado com "npm run cover", e cria uma pastaa coverage, com outra pasta "Icov-report" com este index.html. 
 
+
+
+
+<h3>Aula 16 - Uso do PostgreSQL</h3>
+- Deve primeiro ser baixada a versão completa do PostgreSQL e o PgAdmin.<br>
+- Então, a porta correta deve ser definida, normalmente a 5432.<br>
+- O que será aberto na máquina é o próprio PgAdmin, que irá pedir a senha universal, que é 123456 (no Senac).<br>
+- Lá que é criado o banco de dados, o sor continuou o projeto da aula 10, então chamou o banco de "crud_produto".<br>
+- No terminal de um novo projeto, "npm init -y" para ionciiar o node no projeto, depois com a pasta do projeto aberta: "npm install pg".<br>
+- Com as devidas modificações no package.JSON, nosso main (ou app) deve ser criado as seguintes linhas:
+const client = new pg.Client({
+    user: "postgress",
+    password: "123456",
+    host: "localhost",
+    port: 5432, // <-- atentar para a porta correta, em alguns casos é 5433
+    database: "crud_produtos" // <-Nome do seu banco de dados
+}) 

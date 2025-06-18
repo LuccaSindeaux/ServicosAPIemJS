@@ -1,6 +1,32 @@
 let cards = [];
 let nextId = 1;
 
+//Valores previamente chumbados na lista para teste
+// {
+//     id: 1,
+//     name: "Mago Negro",
+//     type: "Monstro",
+//     descricao: "O mais poderoso dos magos em termos de ataque e defesa.",
+//     atk: 2500,
+//     def: 2000
+//   },
+//   {
+//     id: 2,
+//     name: "Dragão Branco de Olhos Azuis",
+//     type: "Monstro",
+//     descricao: "Um dragão lendário com ataque devastador e força incomparável.",
+//     atk: 3000,
+//     def: 2500
+//   },
+//   {
+//     id: 3,
+//     name: "Dragão Negro de Olhos Vermelhos",
+//     type: "Monstro",
+//     descricao: "Um dragão feroz com espírito indomável e potencial oculto.",
+//     atk: 2400,
+//     def: 2000
+//   }
+
 class CardRepository {
     findAll() {
         return cards;
@@ -11,7 +37,7 @@ class CardRepository {
             return(card.id === id)});
     }
 
-    adicionaCarta(card) {
+    adicionarCarta(card) {
         const newCard = { id: nextId++, ...card };
         cards.push(newCard);
         return newCard;
