@@ -1,10 +1,10 @@
-import cardRepository from '../repository/cardRepository.js';
+const cardRepository =  require('../repository/cardRepository.js')
 
 class CardService {
-    getAllCards() {
-        return cardRepository.findAll();
+    async getAllCards() {
+        return await cardRepository.findAll();
     }
-    getCardById(id) {
+    async getCardById(id) {
             const card = cardRepository.buscarId(Number(id));
             if (!card) {
                 throw new Error('Carta não encontrada.');
@@ -12,27 +12,27 @@ class CardService {
             return card;
         }
 
-    adicionarCarta(card) {
+    async adicionarCarta(card) {
         if (!card.name || !card.type || !card.atk || !card.def) {
             throw new Error('Nome, tipo, ATK, and DEF são obrigatórios');
         }
-        return cardRepository.adicionarCarta(card);
+        return await cardRepository.adicionarCarta(card);
     }
 
-    atualizaCarta(id, cardData) {
-        const updatedCard = cardRepository.atualizaCarta(Number(id), cardData);
+    async atualizaCarta(id, cardData) {
+        const updatedCard = await cardRepository.atualizaCarta(Number(id), cardData);
         if (!updatedCard) {
             throw new Error('Carta não encontrada.');
         }
         return updatedCard;
     }
-
-    deleteCard(id) {
-        const success = cardRepository.deletarCartaId(Number(id));
-        if (!success) {
-            throw new Error('Carta não encontrada.');
+    async deleteCard(id) {
+        const rowCount = await cardRepository.deletarCartaId(Number(id));
+        if (rowCount === 0) {
+            throw new Error('Carta não encontrada para exclusão.');
         }
     }
 }
 
-export default new CardService();
+module.exports = new CardService();
+//export default new CardService();

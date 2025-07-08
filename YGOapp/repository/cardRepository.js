@@ -1,5 +1,5 @@
-let cards = [];
-let nextId = 1;
+// let cards = [];
+// let nextId = 1;
 
 //Valores previamente chumbados na lista para teste
 // {
@@ -26,40 +26,80 @@ let nextId = 1;
 //     atk: 2400,
 //     def: 2000
 //   }
+const { connect } = require('./db.js');
 
 class CardRepository {
-    findAll() {
-        return cards;
-    }
-
-    buscarId(id) {
-        return cards.find(function(card){ 
-            return(card.id === id)});
-    }
-
-    adicionarCarta(card) {
-        const newCard = { id: nextId++, ...card };
-        cards.push(newCard);
-        return newCard;
-    }
-
-    atualizaCarta(id, cardData) {
-        const cardIndex = cards.findIndex(c => c.id === id);
-        if (cardIndex === -1) {
-            return null;
+    async findAll() {
+        let client;
+        try {
+            client = await connect();
+            const result = await client.query('SELECT * FROM cards ORDER BY id ASC');
+            return result.rows;
+        } finally {
+            if (client) {
+                client.release();
+            }
         }
-        cards[cardIndex] = { ...cards[cardIndex], ...cardData };
-        return cards[cardIndex];
     }
 
-    deletarCartaId(id) {
-        const cardIndex = cards.findIndex(c => c.id === id);
-        if (cardIndex === -1) {
-            return false;
+    async getCardById(id) {
+        let client;
+        try {
+            client = await connect();
+            const result = await client.query('SELECT * FROM cards WHERE id = $1', [id]);
+            return result.rows[0];
+        } finally {
+            if (client) {
+                client.release();
+            }
         }
-        cards.splice(cardIndex, 1);
-        return true;
+    }
+
+    async adicionarCarta(card) {
+        let client;
+        const { name, type, atk, def, description } = card;
+        try {
+            client = await connect();
+            const query = 'INSERT INTO cards (name, type, atk, def, description) VALUES ($1, $2, $3, $4, $5) RETURNING *';
+            const values = [name, type, atk, def, description];
+            const result = await client.query(query, values);
+            return result.rows[0];
+        } finally {
+            if (client) {
+                client.release();
+            }
+        }
+    }
+
+    async atualizaCarta(id, cardData) {
+        let client;
+        const { name, type, atk, def, description } = cardData;
+        try {
+            client = await connect();
+            const query = 'UPDATE cards SET name = $1, type = $2, atk = $3, def = $4, description = $5 WHERE id = $6 RETURNING *';
+            const values = [name, type, atk, def, description, id];
+            const result = await client.query(query, values);
+            return result.rows[0];
+        } finally {
+            if (client) {
+                client.release();
+            }
+        }
+    }
+
+    async deletarCartaId(id) {
+        let client;
+        try {
+            client = await connect();
+            const result = await client.query('DELETE FROM cards WHERE id = $1', [id]);
+            return result.rowCount;
+        } finally {
+            if (client) {
+                client.release();
+            }
+        }
     }
 }
 
-export default new CardRepository();
+module.exports = new CardRepository();
+//export default new CardRepository();

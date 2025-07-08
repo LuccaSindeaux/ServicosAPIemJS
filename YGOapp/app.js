@@ -1,15 +1,17 @@
-import express from 'express';
-import cardRouter from './router/cardRouter.js';
-import deckRouter from './router/deckRouter.js';
+const express = require('express');
+const cors = require('cors');
+const cardRouter = require('./router/cardRouter.js');
+//const deckRouter = require('./router/deckRouter.js'); 
 
 const app = express();
-app.use(express.json()); // Middleware para parsear JSON
 
-// Rotas principais
+app.use(cors());
+app.use(express.json());
+
 app.use('/cards', cardRouter);
-app.use('/decks', deckRouter);
+//app.use('/decks', deckRouter);
 
-export default app;
+module.exports = app;
 
 // Rotas da API:
 // Método	Endpoint
