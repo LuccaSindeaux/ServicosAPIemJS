@@ -15,8 +15,8 @@ module.exports = app;
 
 // Rotas da API:
 // Método	Endpoint
-// GET	    http://localhost:3000/cartas
-// GET	    http://localhost:3000/cartas/:id
-// POST	    http://localhost:3000/cartas
-// PUT	    http://localhost:3000/cartas/:id
-// DELETE	http://localhost:3000/cartas/:id
+// GET	    http://localhost:3000/cards
+// GET	    http://localhost:3000/cards/id
+// POST	    http://localhost:3000/cards
+// PUT	    http://localhost:3000/cards/id
+// DELETE	http://localhost:3000/cards/id
