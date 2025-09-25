@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "<h2>Sobre a criação do trabalho</h2>\r - Com a pasta craida, inicia o projeto node nela com \"npm init -y\";\r - Seguido da instalação da do express \"npm install express\";\r - Para o conceito A, que necessota-se de todo testes unitártios e autenticações, tem de ser colocado no terminal:\r     \"npm install nodemon jest supertest --save-dev\"\r     e\r     \"npm install swagger-ui-express swagger-jsdoc\"",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.1.0",
@@ -18,8 +18,11 @@
     "pg": "^8.16.3"
   },
   "devDependencies": {
-    "jest": "^30.0.0",
+    "jest": "^30.0.4",
     "nodemon": "^3.1.10",
     "supertest": "^7.1.1"
+  },
+  "directories": {
+    "test": "tests"
   }
 }
